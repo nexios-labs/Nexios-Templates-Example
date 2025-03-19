@@ -1,0 +1,5 @@
+nexios
+tortoise
+aerich
+pydantic
+python-dotenv

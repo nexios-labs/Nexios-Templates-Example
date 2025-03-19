@@ -1,0 +1,3 @@
+pydantic
+uvicorn
+git+https://github.com/nexios-labs/nexios.git@main

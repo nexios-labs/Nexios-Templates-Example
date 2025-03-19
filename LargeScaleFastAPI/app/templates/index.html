@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Nexios</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2e7d32;
+            --primary-light: #60ad5e;
+            --primary-dark: #005005;
+            --accent: #ffcc80;
+            --accent-dark: #ca9b52;
+            --background: #f5f9f6;
+            --text: #333333;
+            --text-light: #666666;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            min-height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(96, 173, 94, 0.1), transparent 70%);
+            z-index: -1;
+            animation: pulse 15s infinite alternate;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 0.7;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s forwards 0.3s;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .hero h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent);
+            border-radius: 2px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            color: var(--text-light);
+            line-height: 1.6;
+            max-width: 600px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(46, 125, 50, 0.2);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: all 0.6s ease;
+            z-index: -1;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(46, 125, 50, 0.3);
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .btn:active {
+            transform: translateY(-1px);
+        }
+        
+        .btn i {
+            margin-left: 8px;
+        }
+        
+        .flower {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            z-index: 0;
+            opacity: 0;
+        }
+        
+        .flower::before, .flower::after {
+            content: '';
+            position: absolute;
+            background-color: var(--accent);
+            border-radius: 50%;
+        }
+        
+        .flower::before {
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+        
+        .flower::after {
+            width: 40%;
+            height: 40%;
+            top: 30%;
+            left: 30%;
+            background-color: #ffb74d;
+        }
+        
+        .petal {
+            position: absolute;
+            width: 40%;
+            height: 40%;
+            background-color: var(--accent);
+            border-radius: 50% 50% 0 50%;
+            transform-origin: bottom right;
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+            }
+            100% {
+                transform: translateY(0) rotate(360deg);
+            }
+        }
+        
+        @keyframes fadeInScale {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            70% {
+                transform: scale(1.1);
+                opacity: 0.7;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 0.9;
+            }
+        }
+        
+        /* Footer styles */
+        footer {
+            background: linear-gradient(to right, var(--primary-dark), var(--primary));
+            color: white;
+            padding: 2rem 0;
+            margin-top: auto;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+            transform: translateX(5px);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent);
+            color: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem 0;
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .footer-section {
+                flex: 100%;
+                margin-bottom: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Nexios</h1>
+            <p>The lightweight and efficient Python framework for modern applications. Build scalable, maintainable, and high-performance web services with minimal overhead.</p>
+            <a href="https://nexios-labs.github.io/Nexios" class="btn">Explore Documentation <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Nexios</h3>
+                <p>A modern Python framework designed for simplicity, performance, and developer happiness.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-discord"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Documentation</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Getting Started</a></li>
+                    <li><a href="#">API Reference</a></li>
+                    <li><a href="#">Tutorials</a></li>
+                    <li><a href="#">Examples</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Community</h3>
+                <ul class="footer-links">
+                    <li><a href="#">GitHub</a></li>
+                    <li><a href="#">Discord</a></li>
+                    <li><a href="#">Stack Overflow</a></li>
+                    <li><a href="#">Twitter</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Changelog</a></li>
+                    <li><a href="#">Roadmap</a></li>
+                    <li><a href="#">Contributing</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Nexios Framework. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Create flowers with petals
+            for (let i = 0; i < 15; i++) {
+                createFlower();
+            }
+            
+            // Add parallax effect to hero section
+            document.addEventListener('mousemove', (e) => {
+                const moveX = (e.clientX - window.innerWidth / 2) * 0.01;
+                const moveY = (e.clientY - window.innerHeight / 2) * 0.01;
+                document.querySelector('.hero-content').style.transform = `translateX(${moveX}px) translateY(${moveY}px)`;
+            });
+        });
+        
+        function createFlower() {
+            const flower = document.createElement("div");
+            flower.classList.add("flower");
+            document.querySelector('.hero').appendChild(flower);
+            
+            // Create petals
+            for (let i = 0; i < 5; i++) {
+                const petal = document.createElement("div");
+                petal.classList.add("petal");
+                petal.style.transform = `rotate(${i * 72}deg)`;
+                flower.appendChild(petal);
+            }
+            
+            // Position randomly
+            const x = Math.random() * window.innerWidth;
+            const y = Math.random() * window.innerHeight * 0.7;
+            flower.style.left = `${x}px`;
+            flower.style.top = `${y}px`;
+            
+            // Random size
+            const size = 20 + Math.random() * 30;
+            flower.style.width = `${size}px`;
+            flower.style.height = `${size}px`;
+            
+            // Animation
+            flower.style.animation = `fadeInScale 0.8s forwards ${Math.random() * 2}s, float ${5 + Math.random() * 10}s ease-in-out infinite ${Math.random() * 5}s`;
+            
+            // Random color variation
+            const hue = 35 + Math.random() * 10; // Base is orange/yellow
+            flower.style.filter = `hue-rotate(${hue}deg) brightness(${0.9 + Math.random() * 0.3})`;
+        }
+    </script>
+</body>
+</html>
+
