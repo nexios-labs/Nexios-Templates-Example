@@ -5,40 +5,11 @@ This repository contains multiple **Nexios API templates**, ranging from minimal
 
 ## Available Templates
 
-### 1. Minimal Nexios API Template
-A barebones Nexios API setup with the essential files to get started.
-
-**Structure:**
-```
-MinimalNexios/
-├── app/
-│   ├── __init__.py
-│   ├── main.py
-├── .gitignore
-├── README.md
-├── requirements.txt
-├── .env
-```
-
-### 2. Standard Nexios API Template
-A more structured Nexios template with additional configurations, database setup, and environment management.
-
-**Structure:**
-```
-StandardNexios/
-├── app/
-│   ├── __init__.py
-│   ├── config.py
-│   ├── db.py
-│   ├── main.py
-├── .gitignore
-├── README.md
-├── requirements.txt
-├── .env
-```
-
-### 3. Full-Stack Nexios API Template
+### 🏗️ FullStack Nexios API Template
 A template designed for full-stack development with a frontend, database integration, and structured backend logic.
+
+[![Download FullStack](https://img.shields.io/badge/Download-FullStack-blue?style=for-the-badge)](https://downgit.github.io/#/home?url=https://github.com/nexios-labs/Nexios-Templates-Example/tree/master/FullStack)
+
 
 **Structure:**
 ```
@@ -61,8 +32,11 @@ FullStackNexios/
 ├── .env
 ```
 
-### 4. Large-Scale Nexios API Template
+### 🏢 Large-Scale Nexios API Template
 For enterprise applications, this template includes modules for configuration, models, schemas, and core functionality.
+
+[![Download LargeScale](https://img.shields.io/badge/Download-LargeScale-green?style=for-the-badge)](https://downgit.github.io/#/home?url=https://github.com/nexios-labs/Nexios-Templates-Example/tree/master/LargeScale)
+
 
 **Structure:**
 ```
@@ -82,8 +56,11 @@ LargeScaleNexios/
 ├── .env
 ```
 
-### 5. Microservices Nexios API Template
+### 🏗️ Microservices Nexios API Template
 A microservices-based architecture for Nexios, with separate services for authentication, users, and payments, along with a gateway.
+
+[![Download Microservices](https://img.shields.io/badge/Download-Microservices-orange?style=for-the-badge)](https://downgit.github.io/#/home?url=https://github.com/nexios-labs/Nexios-Templates-Example/tree/master/Microservices)
+
 
 **Structure:**
 ```
@@ -109,6 +86,46 @@ MicroservicesNexios/
 ├── docker-compose.yml
 ├── .env
 ```
+
+### 🔹 Minimal Nexios API Template
+A barebones Nexios API setup with the essential files to get started.
+
+[![Download Minimal](https://img.shields.io/badge/Download-Minimal-purple?style=for-the-badge)](https://downgit.github.io/#/home?url=https://github.com/nexios-labs/Nexios-Templates-Example/tree/master/Minimal)
+
+
+**Structure:**
+```
+MinimalNexios/
+├── app/
+│   ├── __init__.py
+│   ├── main.py
+├── .gitignore
+├── README.md
+├── requirements.txt
+├── .env
+```
+
+### 📌 Standard Nexios API Template
+A more structured Nexios template with additional configurations, database setup, and environment management.
+
+[![Download Standard](https://img.shields.io/badge/Download-Standard-red?style=for-the-badge)](https://downgit.github.io/#/home?url=https://github.com/nexios-labs/Nexios-Templates-Example/tree/master/Standard)
+
+
+**Structure:**
+```
+StandardNexios/
+├── app/
+│   ├── __init__.py
+│   ├── config.py
+│   ├── db.py
+│   ├── main.py
+├── .gitignore
+├── README.md
+├── requirements.txt
+├── .env
+```
+
+---
 
 ## Getting Started
 ### 1. Clone the Repository
